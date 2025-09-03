@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY      = "docker.io/your-username"  
-        APP_NAME      = "laravel-app"
+        REGISTRY      = "docker.io/jhinga"  
+        APP_NAME      = "demo-app"
         BRANCH_NAME   = "${env.GIT_BRANCH}".replaceAll("/", "-")
         IMAGE_TAG     = "${BRANCH_NAME}-${env.BUILD_NUMBER}"
     }
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your/repo.git'
+                git branch: 'main', url: 'https://github.com/KrishnaPathak824/Laravel-CI-CD-With-Jenkins'
             }
         }
 
