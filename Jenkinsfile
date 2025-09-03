@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'php:8.1-cli' }
+    }
 
     environment {
         REGISTRY      = "docker.io/jhinga"  
@@ -19,8 +21,6 @@ pipeline {
             steps {
                 sh '''
                     cp .env.example .env
-                    curl -sS https://getcomposer.org/installer | php
-                    sudo mv composer.phar /usr/local/bin/composer
                     composer install --no-interaction --prefer-dist
                     php artisan key:generate
                     ./vendor/bin/phpunit --testdox
