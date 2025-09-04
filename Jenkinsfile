@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'php:8.1-cli' }
+        docker { image 'composer:latest' }
     }
 
     environment {
