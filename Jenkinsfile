@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        docker { image 'composer:latest' }
+        node {
+            label 'docker-laravel-agent'
+        }
     }
 
     environment {
